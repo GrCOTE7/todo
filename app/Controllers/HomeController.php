@@ -10,6 +10,8 @@ class HomeController extends Controller
 {
 	public function index(): string
 	{
-		return $this->template->render('pages/index.twig', ['data'=>777]);
+		$tasks = (new TodoController())->all();
+
+		return $this->template->render('pages/index.twig', ['data' => $tasks]);
 	}
 }
