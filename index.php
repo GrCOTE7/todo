@@ -1,8 +1,7 @@
 <?php
 
-use Inphinit\Teeny;
 use App\Controllers\TodoController;
-
+use Inphinit\Teeny;
 
 require_once './vendor/autoload.php';
 require_once './vendor/inphinit/teeny/vendor/Teeny.php';

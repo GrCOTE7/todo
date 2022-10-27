@@ -1,0 +1,7 @@
+<ul>
+  {% for todo in todos %}
+  <li class="bg-rose-500 m-4 p-4 text-white text-lg cursor-pointer hover:border rounded hover:rounded-xl shadow-lg">
+    {{ todo.name }}
+  </li>
+  {% endfor %}
+</ul>

@@ -7,5 +7,18 @@
   <div id="done">Faites</div>
 </main>
 
+<div class="grid grid-cols-2">
+  <div class="text-center">
+      <h2 class="uppercase font-bold text-gray-700">Les choses à faire</h2>
+
+      {% include './resources/views/components/list.twig'  with {'todos': in_progress_todos}  %}
+  </div>
+  <div class="text-center">
+      <h2 class="uppercase font-bold text-gray-700">Les choses faites! (bien joué :) )</h2>
+
+      {% include './resources/views/components/list.html'  with {'todos': checked_todos}  %}
+  </div>
+</div>
+
 {{data}}
 {% endblock %}
