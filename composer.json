@@ -1,0 +1,21 @@
+{
+    "name": "grcote7/todo",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "./config/settings.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Lionel COTE",
+            "email": "grcote7@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.4",
+        "inphinit/teeny": "^0.2.10"
+    }
+}
