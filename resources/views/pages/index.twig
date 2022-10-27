@@ -1,6 +1,11 @@
 {% extends 'layouts/base.twig' %}
 {% block content %}
-  Page index
-  <hr>
-  {{data}}
+
+<h1 class="text-red-500 text-center text-4xl">Priorités</h1>
+<main class="w-full flex justify-around">
+  <div id="2do">2do</div>
+  <div id="done">Done</div>
+</main>
+
+{{data}}
 {% endblock %}

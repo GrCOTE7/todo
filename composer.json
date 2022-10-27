@@ -16,6 +16,7 @@
     ],
     "require": {
         "twig/twig": "^3.4",
-        "inphinit/teeny": "^0.2.10"
+        "inphinit/teeny": "^0.2.10",
+        "robmorgan/phinx": "^0.13.1"
     }
 }
