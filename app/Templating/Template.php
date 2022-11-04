@@ -22,6 +22,7 @@ class Template
 		]);
 
 		$this->twig->addGlobal('APP_NAME', APP['name']);
+		$this->twig->addGlobal('session', $_SESSION);
 
 		$this->twig->addExtension(new \Twig\Extension\DebugExtension());
 	}

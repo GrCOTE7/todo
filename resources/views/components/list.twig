@@ -1,7 +1,19 @@
 <ul>
+  {# {% set todos = session.todos %} #}
+
   {% for todo in todos %}
-  <li class="bg-rose-500 m-4 p-4 text-white text-lg cursor-pointer hover:border rounded hover:rounded-xl shadow-lg">
-    {{ todo.name }}
-  </li>
+    {% if todo.is_checked == done %}
+    <li
+      class="bg-red-500 m-4 p-4 text-white text-lg cursor-pointer hover:border rounded hover:rounded-xl shadow-lg {% if todo.is_checked %} bg-green-500 {% endif %}">
+      <label class="checkbox flex">
+        {{todo.id}}&nbsp;
+
+        <a href="changeStatus/{{todo.id}}">
+          <div class="status {% if todo.is_checked %} checked {% endif %} "></div>
+        </a>
+
+        <a href="edit/{{todo.id}}"><i class="fas fa-pen-to-square"></i> {{ todo.name }}</a>
+      </label </li>
+    {% endif %}
   {% endfor %}
 </ul>

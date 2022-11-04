@@ -1,0 +1,41 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+
+<h1 class="text-red-500 text-center text-4xl">Tâche n° {{ data.id }}</h1>
+<main class="w-[77%] mx-auto">
+  <h2 class="text-blue-500 text-center text-4xl align-right">Statut:
+    {{data.is_checked ? 'Faite':' À faire'}}</h2>
+  <hr>
+  <form action="" method="post">
+
+    <div class="field">
+      <label class="label">Nom</label>
+      <div class="control">
+        <input class="input" type="text" placeholder="Text input" value="{{ data.name }}">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Contenu</label>
+      <div class="control">
+        <textarea class="textarea" placeholder="Textarea">{{ data.content }}</textarea>
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-link">Enregistrer</button>
+      </div>
+      <div class="control">
+        <button class="button is-link is-light">Annuler</button>
+      </div>
+    </div>
+  </form>
+
+  <button class="mt-5 mr-20 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded float-right">
+    Faite
+  </button>
+</main>
+
+{% endblock %}

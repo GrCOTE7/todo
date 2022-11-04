@@ -9,3 +9,26 @@ body {
   height: 100vh;
   background-color: beige;
 }
+
+.status {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 40px;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.checked::before {
+  position: absolute;
+  font-weight: bold;
+  color: green;
+  content: 'X';
+  font-size: 25px;
+  line-height: 1.5;
+  margin: -10px;
+  padding-left: 2px;
+
+}
