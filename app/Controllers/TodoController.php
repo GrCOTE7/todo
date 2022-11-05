@@ -8,16 +8,17 @@ namespace App\Controllers;
 
 use App\FlashMessage;
 use App\Models\Todo;
+use App\Tools\Gc7;
 use App\Validators\Todo as TodoValidator;
 
 class TodoController extends Controller
 {
 	public function index(): string
 	{
-		$todos             = (new Todo())->all();
+		$todos = (new Todo())->all();
 		// $_SESSION['todos'] = $todos;
 
-		return $this->template->render('pages/index.twig', ['todos'=> $todos]);
+		return $this->template->render('pages/index.twig', ['todos' => $todos]);
 	}
 
 	public function form()
@@ -27,7 +28,7 @@ class TodoController extends Controller
 			'action' => 'create',
 		];
 
-		aff();
+		Gc7::aff($_SESSION);
 
 		return $this->template->render('pages/form.twig');
 	}
@@ -60,7 +61,7 @@ class TodoController extends Controller
 		$_SESSION['errors'] = $errors;
 
 		if (FlashMessage::getInstance()->hasErrors()) {
-			aff();
+			Gc7::aff($_SESSION);
 
 			return $this->template->render('pages/form.twig');
 		}
@@ -69,7 +70,7 @@ class TodoController extends Controller
 
 		$todos = (new Todo())->all();
 
-		aff();
+		Gc7::aff($_SESSION);
 
 		$_SESSION['todos'] = $todos;
 

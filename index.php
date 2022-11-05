@@ -22,16 +22,16 @@ $app->action('POST', 'form', function () use ($todo) {
 	return $todo->form();
 });
 
+$app->action('GET', 'edit/<id:num>', function ($id) use ($todo) {
+	return $todo->edit($id);
+});
+
 $app->action('GET', 'changeStatus/<id:num>', function ($id) use ($todo) {
 	return $todo->changeStatus($id);
 });
 
 $app->action('POST', 'create', function () use ($todo) {
 	return $todo->create();
-});
-
-$app->action('GET', 'edit/<id:num>', function ($id) use ($todo) {
-	return $todo->edit($id);
 });
 
 $app->action('POST', 'update', function () use ($todo) {
