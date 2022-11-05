@@ -6,11 +6,15 @@
       <label class="checkbox flex">
         {{todo.id}}&nbsp;
 
-        <a href="changeStatus/{{todo.id}}">
-          <div class="status {% if todo.is_checked %} checked {% endif %} "></div>
+        <a href="changeStatus/{{todo.id}}" class="flex-none items-center w-10">
+          <div class="status {% if todo.is_checked %} checked {% endif %}"></div>
         </a>
 
-        <a href="edit/{{todo.id}}"><i class="fas fa-pen-to-square"></i> {{ todo.name }}</a>
+        <a href="edit/{{todo.id}}" class="grow items-center">
+          <i class="fas fa-pen-to-square flex-1"></i> {{ todo.name }}
+        </a>
+        
+        <div class="fa-solid fa-trash-can flex-none items-center w-10 pt-1 mr-0"></div>
       </label </li>
     {% endif %}
   {% endfor %}
