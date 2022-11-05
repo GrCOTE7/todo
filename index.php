@@ -8,7 +8,7 @@ require_once './vendor/autoload.php';
 require_once './vendor/inphinit/teeny/vendor/Teeny.php';
 
 if (!session_id()) {
-	@session_start();
+	session_start();
 }
 
 $app  = new Teeny();
