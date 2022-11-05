@@ -90,7 +90,7 @@ class TodoController extends Controller
 			'id'      => $todo['id'] ?? null,
 			'name'    => $todo['name'] ?? null,
 			'content' => $todo['content'] ?? null,
-			'status'  => $todo['is_checked'] ? 'À priori: Déjà Réalisée' : 'À faire',
+			'status'  => $todo['is_checked'] ?? null,
 		];
 
 		return $this->template->render(self::FORM, ['data' => $data]);

@@ -4,8 +4,9 @@
 
 <h1 class="text-blue-500 text-center text-4xl my-7">
   {% if data.todo.action == 'create' %}Ajouter une Tâche{% else %}Mettre à jour
-  la tâche  #{{data.todo.id}}<hr><p class=""><div class="text-base">Status :</div>
-    <div class="text-2xl">{{ data.todo.status }}</div></p> {% endif %}
+  la tâche #{{data.todo.id}}<hr><p class=""><div class="text-base">Status :</div>
+    <div class="text-2xl">{{ data.todo.status ? 'À priori: Déjà réalisée':'À
+      faire'}}</div></p> {% endif %}
 </h1>
 
 <main class="w-[77%] mx-auto">
