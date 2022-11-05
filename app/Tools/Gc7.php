@@ -14,7 +14,7 @@ class Gc7
 
 	public static function affR($var, $txt = null)
 	{
-		$aff = '<a title=' . debug_backtrace()[0]['file'] . '&nbsp;-&nbsp;Line&nbsp;' . debug_backtrace()[0]['line'] . '><pre>' . (($txt) ? $txt . ' : ' : '');
+		$aff = '<a title=' . debug_backtrace()[1]['file'] . '&nbsp;-&nbsp;Line&nbsp;' . debug_backtrace()[1]['line'] . '><pre>' . (($txt) ? $txt . ' : ' : '');
 		$aff .= print_r($var, 1);
 		$aff .= '</pre></a>';
 		// echo $aff;

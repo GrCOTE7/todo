@@ -4,14 +4,21 @@
 <h1 class="text-blue-500 text-center text-4xl">Test</h1>
 
 <main class="mx-7 text-2xl">
-  {% set tasks = session.tasks %}
 
-  {% for task in tasks %}
-    Nom de la tâche : {{ task.name }}<br>
-    ID: {{ task.id }}<br>
-    Description: {{ task.content }}
-    <br>&nbsp;<br>
-  {% endfor %}
+
+  <hr>
+
+  {# {{ data|join ?? 'Vide' }} #}
+
+  <hr>
+  {% set task = data %}
+
+  {# {% for task in tasks %} #}
+  Tâche : {{ task.name }}<br>
+  ID: {{ task.id }}<br>
+  Description: {{ task.content }}
+  <br>&nbsp;<br>
+  {# {% endfor %} #}
 </main>
 
 {% endblock %}

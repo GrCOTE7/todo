@@ -30,13 +30,13 @@ $app->action('GET', 'changeStatus/<id:num>', function ($id) use ($todo) {
 	return $todo->changeStatus($id);
 });
 
-$app->action('POST', 'create', function () use ($todo) {
-	return $todo->create();
+$app->action('POST', 'save', function () use ($todo) {
+	return $todo->save();
 });
 
-$app->action('POST', 'update', function () use ($todo) {
-	return $todo->update();
-});
+// $app->action('POST', 'update', function () use ($todo) {
+// 	return $todo->update();
+// });
 // die (__FILE__.' - '.__LINE__);
 
 $app->action('GET', 't', function () {

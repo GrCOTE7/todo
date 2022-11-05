@@ -33,5 +33,6 @@ body {
 }
 
 hr {
+  border: 2px solid rgb(254, 225, 35);
   background-color: rgb(220, 220, 220);
 }
