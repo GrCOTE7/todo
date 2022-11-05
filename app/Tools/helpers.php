@@ -1,5 +1,7 @@
 <?php
 
+use App\Tools\Gc7;
+
 /**
  * (ɔ) Online FORMAPRO - GrCOTE7 -2022.
  */

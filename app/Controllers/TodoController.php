@@ -1,9 +1,5 @@
 <?php
 
-/**
- * (ɔ) Online FORMAPRO - GrCOTE7 -2022.
- */
-
 namespace App\Controllers;
 
 use App\FlashMessage;
@@ -14,11 +10,17 @@ use App\Validators\Todo as TodoValidator;
 class TodoController extends Controller
 {
 	// private const $FORM = 'pages/index.twig';
-	const HOME = '/';
-	const FORM = 'pages/form.twig';
-	 
+	public const HOME = '/';
+	public const FORM = 'pages/form.twig';
+
 	public function index(): string
 	{
+		$_SESSION['HOST'] = $_SERVER['HTTP_HOST'];
+
+		// Gc7::aff($_SERVER);
+
+		echo '<hr>';
+
 		$todos = (new Todo())->all();
 
 		return $this->template->render('pages/index.twig', ['todos' => $todos]);
@@ -61,30 +63,35 @@ class TodoController extends Controller
 		if (FlashMessage::getInstance()->hasErrors()) {
 			return $this->template->render(self::FORM, ['data' => $data]);
 		}
-		
+
 		(new Todo())->create($todo);
 
 		$todos = (new Todo())->all();
 
 		$_SESSION['todos'] = $todos;
 
-		header(self::HOME);
+		header('location: ' . self::HOME);
 	}
 
 	public function edit($id)
 	{
 		$todo = (new Todo())->getTodo($id['id']);
 
-		return $this->template->render('pages/form.twig', [
-			'todo'   => $todo,
-			'title'  => 'Mettre à jour la tâche',
-			'action' => '../update',
-			'errors' => [
-				'name1'   => $errName1 ?? '',
-				'name2'   => $errName2 ?? '',
-				'content' => $errContent ?? '',
+		// Gc7::aff($_SERVER);
+		echo $todo->name . '<hr>';
+
+		$data = [
+			'page' => [
+				'title'  => 'Mettre à jour la tâche',
+				'action' => '../update',
 			],
-		]);
+			'todo' => [
+				'name'    => $todo->name,
+				'content' => $todo->content,
+			],
+		];
+
+		return $this->template->render(self::FORM, ['data' => $data]);
 	}
 
 	public function update()

@@ -1,10 +1,8 @@
 <?php
-
-/**
- * (ɔ) Online FORMAPRO - GrCOTE7 -2022.
- */
-
 namespace App\Tools;
+
+$GLOBALS['ROOT_DOCUMENT'] = realpath($_SERVER['DOCUMENT_ROOT']);
+
 
 class Gc7
 {
@@ -13,8 +11,9 @@ class Gc7
 		$aff = self::affR($var, $txt);
 		echo $aff;
 	}
-	
-	public static function affR($var, $txt = null){
+
+	public static function affR($var, $txt = null)
+	{
 		$aff = '<a title=' . debug_backtrace()[0]['file'] . '&nbsp;-&nbsp;Line&nbsp;' . debug_backtrace()[0]['line'] . '><pre>' . (($txt) ? $txt . ' : ' : '');
 		$aff .= print_r($var, 1);
 		$aff .= '</pre></a>';
@@ -25,14 +24,24 @@ class Gc7
 
 	/**
 	 * Affiche les 3 clés utiles de notre session.
+	 *
+	 * @param mixed $out
 	 */
-	public static function affSession($out=0)
+	public static function affSession($out = 0)
 	{
 		$infos = ['page', 'todo', 'errors'];
 		foreach ($infos as $info) {
 			$str[] = self::affR($_SESSION['data'][$info] ?? 'Nothing', $info);
 		}
+
 		return implode($str);
 	}
 }
 // aff(debug_backtrace());
+
+if (!function_exists('getUri')) {
+	function getUri(): string
+	{
+		return explode('?', $_SERVER['REQUEST_URI'])[0];
+	}
+}

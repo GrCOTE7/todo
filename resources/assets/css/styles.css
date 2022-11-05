@@ -30,5 +30,8 @@ body {
   line-height: 1.5;
   margin: -10px;
   padding-left: 2px;
+}
 
+hr {
+  background-color: rgb(220, 220, 220);
 }
