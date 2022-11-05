@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-use App\Tools\Gc7;
-use App\Models\Todo;
 use App\FlashMessage;
+use App\Models\Todo;
+use App\Tools\Gc7;
 use App\Validators\Todo as TodoValidator;
 
 class TodoController extends Controller
@@ -90,6 +90,7 @@ class TodoController extends Controller
 			'id'      => $todo['id'] ?? null,
 			'name'    => $todo['name'] ?? null,
 			'content' => $todo['content'] ?? null,
+			'status'  => $todo['is_checked'] ? 'À priori: Déjà Réalisée' : 'À faire',
 		];
 
 		return $this->template->render(self::FORM, ['data' => $data]);
