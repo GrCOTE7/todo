@@ -1,21 +1,25 @@
 <ul>
   {% for todo in todos %}
-    {% if todo.is_checked == done %}
-    <li
-      class="bg-red-500 m-4 p-4 text-white text-lg cursor-pointer hover:border rounded hover:rounded-xl shadow-lg {% if todo.is_checked %} bg-green-500 {% endif %}">
-      <label class="checkbox flex">
-        {{todo.id}}&nbsp;
+  {% if todo.is_checked == done %}
+  <li
+    class="bg-red-500 m-4 p-4 text-white text-lg cursor-pointer hover:border
+    rounded hover:rounded-xl shadow-lg {% if todo.is_checked %} bg-green-500 {%
+    endif %}">
+    <label class="checkbox flex">
+      {{todo.id}}&nbsp;
 
-        <a href="changeStatus/{{todo.id}}" class="flex-none items-center w-10">
-          <div class="status {% if todo.is_checked %} checked {% endif %}"></div>
-        </a>
+      <a href="changeStatus/{{todo.id}}" class="flex-none items-center w-10">
+        <div class="status {% if todo.is_checked %} checked {% endif %}"></div>
+      </a>
 
-        <a href="edit/{{todo.id}}" class="grow items-center">
-          <i class="fas fa-pen-to-square flex-1"></i> {{ todo.name }}
-        </a>
-        
-        <div class="fa-solid fa-trash-can flex-none items-center w-10 pt-1 mr-0"></div>
-      </label </li>
-    {% endif %}
+      <a href="edit/{{todo.id}}" class="grow items-center">
+        <i class="fas fa-pen-to-square flex-1"></i> {{ todo.name }}
+      </a>
+
+      <a href="delete/{{todo.id}}" class="grow items-center">
+        <i class="fa-solid fa-trash-can flex-none items-center w-10 pt-1 mr-0"></i>
+      </a>
+    </label </li>
+  {% endif %}
   {% endfor %}
 </ul>

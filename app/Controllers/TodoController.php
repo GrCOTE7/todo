@@ -2,8 +2,9 @@
 
 namespace App\Controllers;
 
-use App\FlashMessage;
+use App\Tools\Gc7;
 use App\Models\Todo;
+use App\FlashMessage;
 use App\Validators\Todo as TodoValidator;
 
 class TodoController extends Controller
@@ -72,6 +73,14 @@ class TodoController extends Controller
 		$todo->save();
 
 		header('Location: /');
+	}
+
+	public function delete($id)
+	{
+		Gc7::aff($id['id']);
+		$toDeleteTodo = (new Todo())->getTodo($id['id']);
+		$toDeleteTodo->delete();
+		header('location: /');
 	}
 
 	private function getForm($todo = null)
