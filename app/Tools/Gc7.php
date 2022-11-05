@@ -10,10 +10,15 @@ class Gc7
 {
 	public static function aff($var, $txt = null)
 	{
+		$aff = self::affR($var, $txt);
+		echo $aff;
+	}
+	
+	public static function affR($var, $txt = null){
 		$aff = '<a title=' . debug_backtrace()[0]['file'] . '&nbsp;-&nbsp;Line&nbsp;' . debug_backtrace()[0]['line'] . '><pre>' . (($txt) ? $txt . ' : ' : '');
 		$aff .= print_r($var, 1);
 		$aff .= '</pre></a>';
-		echo $aff;
+		// echo $aff;
 
 		return $aff;
 	}
@@ -21,11 +26,13 @@ class Gc7
 	/**
 	 * Affiche les 3 clés utiles de notre session.
 	 */
-	public static function affSession()
+	public static function affSession($out=0)
 	{
-		self::aff($_SESSION['data'], 'data');
-		self::aff($_SESSION['todo'], 'todo');
-		self::aff($_SESSION['errors'], 'errors');
+		$infos = ['page', 'todo', 'errors'];
+		foreach ($infos as $info) {
+			$str[] = self::affR($_SESSION['data'][$info] ?? 'Nothing', $info);
+		}
+		return implode($str);
 	}
 }
 // aff(debug_backtrace());

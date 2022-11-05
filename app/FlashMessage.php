@@ -22,9 +22,9 @@ class FlashMessage
 		return self::$_instance;
 	}
 
-	public function addError(string $message): void
+	public function addError(string $field, string $message): void
 	{
-		$this->session['errors'][] = $message;
+		$this->session['errors'][$field] = $message;
 	}
 
 	public function getErrors(): array

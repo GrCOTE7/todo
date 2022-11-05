@@ -13,31 +13,35 @@ use App\Validators\Todo as TodoValidator;
 
 class TodoController extends Controller
 {
+	// private const $FORM = 'pages/index.twig';
+	const HOME = '/';
+	const FORM = 'pages/form.twig';
+	 
 	public function index(): string
 	{
 		$todos = (new Todo())->all();
-		// $_SESSION['todos'] = $todos;
-
-		Gc7::affSession();
 
 		return $this->template->render('pages/index.twig', ['todos' => $todos]);
 	}
 
 	public function form()
 	{
-		$_SESSION['data'] = [
+		$data['page'] = [
 			'title'  => 'Ajouter une Tâche',
 			'action' => 'create',
 		];
 
-		// Gc7::aff($_SESSION);
-
-		return $this->template->render('pages/form.twig');
+		return $this->template->render(self::FORM, ['data' => $data]);
 	}
 
 	public function create()
 	{
 		FlashMessage::getInstance()->clearErrors();
+
+		$page = [
+			'title'  => 'Ajouter une Tâche',
+			'action' => 'create',
+		];
 
 		$todo = [
 			'name'    => $_POST['name'] ?? null,
@@ -48,36 +52,23 @@ class TodoController extends Controller
 
 		$errors = FlashMessage::getInstance()->getErrors();
 
-		// echo 'data<pre>';
-		// var_dump([$errors, FlashMessage::getInstance()->hasErrors(), 'nb'=>FlashMessage::getInstance()->getNbErrors()]);
-		// echo '</pre>';
-
-		// exit;
-
-		$_SESSION['data'] = [
-			'title'  => 'Ajouter une Tâche',
-			'action' => 'create',
+		$data = [
+			'page'   => $page,
+			'todo'   => $todo,
+			'errors' => $errors,
 		];
-		$_SESSION['todo']   = $todo;
-		$_SESSION['errors'] = $errors;
 
 		if (FlashMessage::getInstance()->hasErrors()) {
-			Gc7::affSession();
-
-			return $this->template->render('pages/form.twig');
+			return $this->template->render(self::FORM, ['data' => $data]);
 		}
+		
 		(new Todo())->create($todo);
-		// return $this->index();
 
 		$todos = (new Todo())->all();
 
-		// Gc7::aff($_SESSION);
-
 		$_SESSION['todos'] = $todos;
 
-		header('Location: /');
-		// return $this->template->render('pages/index.twig');
-		// return $this->template->render('pages/index.twig');
+		header(self::HOME);
 	}
 
 	public function edit($id)

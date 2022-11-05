@@ -1,28 +1,26 @@
 {% extends 'layouts/base.twig' %}
 
-{% set data = session.data %}
-
 {% block content %}
 
-<h1 class="text-blue-500 text-center text-4xl my-7">{{ data.title }}</h1>
+<h1 class="text-blue-500 text-center text-4xl my-7">{{ data.page.title }}</h1>
 
 <main class="w-[77%] mx-auto">
-
-  <form action="{{ data.action }}" method="POST">
+ {# {{ ss|raw }} #}
+  <form action="{{ data.page.action }}" method="POST">
     
     <div class="field">
       <label class="label">Nom</label>
       <div class="control">
-        <input class="input" type="text" placeholder="Text input" value="{{ data.todo['name'] }}" name="name">
-        <p class="text-red-500">{{ data.errors['name1'] }} {{ data.errors['name2'] }}</p>
+        <input class="input" type="text" placeholder="Text input" value="{{ data.todo.name }}" name="name">
+        <p class="text-red-500">{{ data.errors.name }}</p>
       </div>
     </div>
 
     <div class="field">
       <label class="label">Contenu</label>
       <div class="control">
-        <textarea class="textarea" placeholder="Textarea" name="content">{{ data.todo['content'] }}</textarea>
-        {{ errors['content'] }}
+        <textarea class="textarea" placeholder="Textarea" name="content">{{ data.todo.content }}</textarea>
+        <p class="text-red-500">{{ data.errors.content }}</p>
       </div>
     </div>
 
