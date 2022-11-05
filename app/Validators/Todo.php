@@ -61,7 +61,7 @@ class Todo implements Validator
 		$dateValidator = v::optional(v::dateTime()->greaterThan(new \DateTime()));
 
 		if (!$dateValidator->validate($date)) {
-			self::addError("La date n'est pas correcte");
+			self::addError('date', "La date n'est pas correcte");
 
 			return false;
 		}
