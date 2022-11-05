@@ -4,9 +4,6 @@ use App\Controllers\TestController;
 use App\Controllers\TodoController;
 use Inphinit\Teeny;
 
-// Dépôt de Johnny
-// https://gitlab.com/-/ide/project/onlineformapro/sandbox/todos/tree/main/-/app/
-
 require_once './vendor/autoload.php';
 require_once './vendor/inphinit/teeny/vendor/Teeny.php';
 
