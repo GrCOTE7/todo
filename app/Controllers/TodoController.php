@@ -18,6 +18,8 @@ class TodoController extends Controller
 		$todos = (new Todo())->all();
 		// $_SESSION['todos'] = $todos;
 
+		Gc7::affSession();
+
 		return $this->template->render('pages/index.twig', ['todos' => $todos]);
 	}
 
@@ -28,7 +30,7 @@ class TodoController extends Controller
 			'action' => 'create',
 		];
 
-		Gc7::aff($_SESSION);
+		// Gc7::aff($_SESSION);
 
 		return $this->template->render('pages/form.twig');
 	}
@@ -36,11 +38,6 @@ class TodoController extends Controller
 	public function create()
 	{
 		FlashMessage::getInstance()->clearErrors();
-
-		$_SESSION['data'] = [
-			'title'  => 'Ajouter une Tâche',
-			'action' => 'create',
-		];
 
 		$todo = [
 			'name'    => $_POST['name'] ?? null,
@@ -57,11 +54,15 @@ class TodoController extends Controller
 
 		// exit;
 
+		$_SESSION['data'] = [
+			'title'  => 'Ajouter une Tâche',
+			'action' => 'create',
+		];
 		$_SESSION['todo']   = $todo;
 		$_SESSION['errors'] = $errors;
 
 		if (FlashMessage::getInstance()->hasErrors()) {
-			Gc7::aff($_SESSION);
+			Gc7::affSession();
 
 			return $this->template->render('pages/form.twig');
 		}
@@ -70,7 +71,7 @@ class TodoController extends Controller
 
 		$todos = (new Todo())->all();
 
-		Gc7::aff($_SESSION);
+		// Gc7::aff($_SESSION);
 
 		$_SESSION['todos'] = $todos;
 

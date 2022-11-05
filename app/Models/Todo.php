@@ -8,7 +8,7 @@ class Todo extends Model
 
 	public function all(): \IdiormResultSet|array
 	{
-		return \ORM::forTable(self::$table)->orderByDesc('id')->limit(3)->findMany();
+		return \ORM::forTable(self::$table)->orderByDesc('id')->limit(5)->findMany();
 	}
 
 	public function getTodo($id)
@@ -18,9 +18,9 @@ class Todo extends Model
 
 	public function create($newTodo)
 	{
-		echo '<hr>';
-		var_dump($newTodo);
-		echo '<hr>';
+		// echo '<hr>';
+		// var_dump($newTodo);
+		// echo '<hr>';
 		
 		$todo          = \ORM::forTable(self::$table)->create();
 		$todo->name    = $newTodo['name'];
@@ -32,15 +32,15 @@ class Todo extends Model
 	}
 	
 	public function update($updatedTodo){
-		echo '<hr>';
-		var_dump($updatedTodo['id']);
-		echo '<hr>';
+		// echo '<hr>';
+		// var_dump($updatedTodo['id']);
+		// echo '<hr>';
 		// exit;
 		$todo          = \ORM::forTable(self::$table)->findOne($updatedTodo['id']);
 		$todo->name    = $updatedTodo['name'];
 		$todo->content = $updatedTodo['content'];
 
-		var_dump($todo->name);
+		// var_dump($todo->name);
 
 		return $todo->save();
 	}
