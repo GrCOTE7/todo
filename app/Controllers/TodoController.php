@@ -8,7 +8,6 @@ use App\Validators\Todo as TodoValidator;
 
 class TodoController extends Controller
 {
-	public const HOME = '/';
 	public const FORM = 'pages/form.twig';
 
 	public function index(): string
@@ -63,7 +62,7 @@ class TodoController extends Controller
 			$modifiedTodo->content = $todo['content'];
 			$modifiedTodo->save();
 		}
-		header('location: ' . self::HOME);
+		header('location: /');
 	}
 
 	public function changeStatus($id)
