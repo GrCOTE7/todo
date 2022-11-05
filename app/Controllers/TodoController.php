@@ -43,7 +43,6 @@ class TodoController extends Controller
 		];
 
 		TodoValidator::validate($todo);
-
 		$errors = FlashMessage::getInstance()->getErrors();
 
 		$data = [
