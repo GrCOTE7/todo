@@ -9,7 +9,7 @@ use App\Validators\Todo as TodoValidator;
 
 class TodoController extends Controller
 {
-	public const FORM = 'pages/form.twig';
+	protected const FORM = 'pages/form.twig';
 
 	public function index(): string
 	{
@@ -74,7 +74,7 @@ class TodoController extends Controller
 		header('Location: /');
 	}
 
-	public function delete($id)
+	protected function delete($id)
 	{
 		Gc7::aff($id['id']);
 		$toDeleteTodo = (new Todo())->getTodo($id['id']);
