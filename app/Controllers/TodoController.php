@@ -74,7 +74,7 @@ class TodoController extends Controller
 		header('Location: /');
 	}
 
-	protected function delete($id)
+	public function delete($id)
 	{
 		Gc7::aff($id['id']);
 		$toDeleteTodo = (new Todo())->getTodo($id['id']);
