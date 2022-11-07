@@ -1,5 +1,6 @@
 
 
+
 let status = document.getElementsByClassName('status')
 let nameElt = document.getElementById('name')
 let contentElt = document.getElementById('content')

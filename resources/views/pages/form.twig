@@ -57,9 +57,11 @@
   
   <div class="control float-right mt-2">
     <a href="{% if data.todo.action == 'create' %}./{% else %}./../delete/{{data.todo.id}}{% endif %}">
-      <button class="button is-link is-danger" id="delete">Supprimer</button>
+      <button class="button is-link is-danger" id="delete">{% if data.todo.action == 'create' %}Annuler{% else %}Supprmier la tâche{% endif %}</button>
     </a>
   </div>
 </main>
+
+<script src="./../../resources/assets/js/form.js"></script>
 
 {% endblock %}
