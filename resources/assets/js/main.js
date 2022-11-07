@@ -2,14 +2,27 @@
 
 let status = document.getElementsByClassName('status')
 let nameElt = document.getElementById('name')
+let contentElt = document.getElementById('content')
 let modifBtn = document.getElementById('btnDelModif')
 
-let initialValue = nameElt.value
+let initialNameValue = nameElt.value
+let initialContentValue = contentElt.value
 
-let newValue = ''
+let newNameValue = ''
 nameElt.addEventListener('input', function (e) {
-  newValue = nameElt.value;
-  if (newValue != initialValue) {
+  newNameValue = nameElt.value;
+  if (newNameValue != initialNameValue) {
+    modifBtn.classList.remove("hidden")
+  }
+  else {
+    modifBtn.classList.add("hidden")
+  }
+})
+
+let newContentValue = ''
+contentElt.addEventListener('input', function (e) {
+  newContentValue = contentElt.value;
+  if (newContentValue != initialContentValue) {
     modifBtn.classList.remove("hidden")
   }
   else {
