@@ -1,4 +1,3 @@
-// let status = document.getElementsByClassName('status')
 let nameElt = document.getElementById('name')
 let contentElt = document.getElementById('content')
 let modifBtn = document.getElementById('btnDelModif')
@@ -19,6 +18,6 @@ watchingElts.forEach(elt => {
   })
 })
 
-document.getElementById('btnDelModif').addEventListener('click', () => {
+modifBtn.addEventListener('click', () => {
   modifBtn.classList.add("hidden")
 })
