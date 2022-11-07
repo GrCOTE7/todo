@@ -1,8 +1,8 @@
 
-// let status = document.getElementsByClassName('status')
+let status = document.getElementsByClassName('status')
 
 
-// console.log(status)
+console.log(status)
 // status.addEventListener('click', ()=>{
 //   console.log('clicked')
 // })

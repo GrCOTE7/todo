@@ -4,9 +4,13 @@
 
 <h1 class="text-blue-500 text-center text-4xl my-7">
   {% if data.todo.action == 'create' %}Ajouter une Tâche{% else %}Mettre à jour
-  la tâche #{{data.todo.id}}<hr><p class=""><div class="text-base">Status :</div>
-    <div class="text-2xl">{{ data.todo.status ? 'À priori: Déjà réalisée':'À
-      faire'}}</div></p> {% endif %}
+  la tâche #{{data.todo.id}}
+  <hr>
+  <p class="">
+  <div class="text-base">Status :</div>
+  <div class="text-2xl">{{ data.todo.status ? 'À priori: Déjà réalisée':'À
+    faire'}}</div>
+  </p> {% endif %}
 </h1>
 
 <main class="w-[77%] mx-auto">
@@ -35,19 +39,27 @@
     </div>
 
     <div class="field is-grouped float-right">
+
       <div class="control">
         <button class="button is-link">Enregistrer</button>
       </div>
-      <div class="control">
-        <button class="button is-link is-light" type="reset">Annuler</button>
-      </div>
-    </div>
 
+      <div class="control">
+        <button class="button is-link is-warning" type="reset">Annuler les modifications</button>
+      </div>
+      
+    </div>
+    
     <hr>
     {{ data.todo.action }} → save()
-
+    
   </form>
-
+  
+  <div class="control float-right mt-2">
+    <a href="{% if data.todo.action == 'create' %}./{% else %}./../delete/{{data.todo.id}}{% endif %}">
+      <button class="button is-link is-danger" id="delete">Supprimer</button>
+    </a>
+  </div>
 </main>
 
 {% endblock %}

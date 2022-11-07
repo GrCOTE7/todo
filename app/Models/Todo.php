@@ -8,7 +8,7 @@ class Todo extends Model
 
 	public function all(): \IdiormResultSet|array
 	{
-		return \ORM::forTable(self::$table)->orderByDesc('id')->limit(5)->findMany();
+		return \ORM::forTable(self::$table)->orderByDesc('id')->findMany();
 	}
 
 	public function getTodo($id)

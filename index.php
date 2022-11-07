@@ -34,6 +34,10 @@ $app->action('POST', 'save', function () use ($todo) {
 	return $todo->save();
 });
 
+// $app->action('GET', 'resetForm', function ($id) use ($todo) {
+// 	return $todo->delete($id);
+// });
+
 $app->action('GET', 'delete/<id:num>', function ($id) use ($todo) {
 	return $todo->delete($id);
 });
