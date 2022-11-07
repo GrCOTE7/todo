@@ -1,37 +1,22 @@
 
 
 let status = document.getElementsByClassName('status')
-let nameElt = document.getElementById('name');
+let nameElt = document.getElementById('name')
+let modifBtn = document.getElementById('btnDelModif')
 
-let initialValue = nameElt.value;
+let initialValue = nameElt.value
 
-
-
-console.log(initialValue)
-// console.log(nameValue)
-// console.log(name.value)
-
-let newValue='';
-
+let newValue = ''
 nameElt.addEventListener('input', function (e) {
   newValue = nameElt.value;
-  if (newValue != initialValue){
-    document.getElementById('btnDelModif').classList.remove("hidden") 
-    console.log(initialValue)
+  if (newValue != initialValue) {
+    modifBtn.classList.remove("hidden")
   }
   else {
-    document.getElementById('btnDelModif').classList.add("hidden") 
-      }
-  
-  
+    modifBtn.classList.add("hidden")
+  }
 })
 
-
-
-window.load = (() => {
-  console.log(status)
-  // status.addEventListener('click', ()=>{
-  //   console.log('clicked')
-  // })
-
+document.getElementById('btnDelModif').addEventListener('click', () => {
+  modifBtn.classList.add("hidden")
 })
