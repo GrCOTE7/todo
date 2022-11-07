@@ -24,7 +24,7 @@
       <label class="label">Nom</label>
       <div class="control">
         <input class="input" type="text" placeholder="Text input" value="{{
-          data.todo.name }}" name="name">
+          data.todo.name }}" name="name" id="name">
         <p class="text-red-500">{{ data.errors.name }}</p>
       </div>
     </div>
@@ -32,7 +32,7 @@
     <div class="field">
       <label class="label">Contenu</label>
       <div class="control">
-        <textarea class="textarea" placeholder="Textarea" name="content">{{
+        <textarea class="textarea" placeholder="Textarea" name="content" id="content">{{
           data.todo.content }}</textarea>
         <p class="text-red-500">{{ data.errors.content }}</p>
       </div>
@@ -45,7 +45,7 @@
       </div>
 
       <div class="control">
-        <button class="button is-link is-warning" type="reset">Annuler les modifications</button>
+        <button class="button is-link is-warning hidden" type="reset" id="btnDelModif">Annuler les modifications</button>
       </div>
       
     </div>
