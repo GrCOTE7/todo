@@ -3,9 +3,9 @@ let contentElt = document.getElementById('content')
 let modifBtn = document.getElementById('btnDelModif')
 let init=[];
 
-const watchingElts = [nameElt, contentElt]
+const WATCHINGELTS = [nameElt, contentElt]
 
-watchingElts.forEach(elt => {
+WATCHINGELTS.forEach(elt => {
   init[elt] = elt.value
   elt.addEventListener('input', function (e) {
     let newValue = elt.value;
