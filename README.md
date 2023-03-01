@@ -2,11 +2,9 @@
 
 ---
 
-Dépôt de Johnny
-https://gitlab.com/-/ide/project/onlineformapro/sandbox/todos/tree/main/-/app/
+# Installation
 
-
-Rappel de mise en place (Ici pour une installation complète, par exemple sur un autre PC):
+Mise en place (Ici pour une installation complète, par exemple sur un autre PC):
 
 1. a) Fork du projet
    
@@ -30,9 +28,16 @@ Rappel de mise en place (Ici pour une installation complète, par exemple sur un
     À partir du fichier config/settings_exemple.php
 
 4. Créer la Database "todo" et lancer les migrations
+   
+   Linux
 
    ``` 
    vendor\bin\phinx.bat migrate
+   ```
+   Windows
+   
+   ```
+   ./vendor/bin/phinx.bat migrate
    ```
    
    → http://prntscr.com/ZyRaDBIEZFZs
