@@ -1,6 +1,6 @@
 // In project folder:
 
-// browser-sync start --proxy "localhost/feature_contact-form" --files "css/*.css, *.html, *.php"
+// browser-sync start --proxy "todo" --files "**/*.html, **/*.twig, **/*.css, **/*.js, **/*.php"
 
 
 
@@ -13,7 +13,5 @@
 // Dans le fichier ../aGC7/js/sync_gc7.js 
 
 //<![CDATA[
-  document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.27.10'><\/script>".replace("HOST", location.hostname));
+document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.27.10'><\/script>".replace("HOST", location.hostname));
 //]]>
-    
-    // 2do GULP

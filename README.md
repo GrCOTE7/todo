@@ -2,6 +2,10 @@
 
 ---
 
+```
+browser-sync start --proxy "todo" --files "**/*.html, **/*.twig, **/*.css, **/*.js, **/*.php"
+```
+
 # Installation
 
 Mise en place (Ici pour une installation complète, par exemple sur un autre PC):

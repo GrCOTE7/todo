@@ -6,8 +6,8 @@
 
 namespace App\Controllers;
 
-use App\Tools\Gc7;
 use App\Models\Todo;
+use App\Tools\Gc7;
 
 class TestController extends Controller
 {
@@ -15,12 +15,13 @@ class TestController extends Controller
 
 	public function test(): string
 	{
-		$td = (new Todo())->getTodo(28);
-		$td->name='okéè2y';
-		$td->save();
+		// $td = (new Todo())->getTodo(28);
+		// $td->name='okéè2y';
+		// $td->save();
 
 		// Gc7::aff($td, 'td');
-		return $this->template->render('pages/test.twig', ['data' => $td]);
+
+		return $this->template->render('pages/test.twig', ['data' => $data ?? '']);
 	}
 
 	public function allTasksExceptTask2()
